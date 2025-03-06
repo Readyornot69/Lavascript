@@ -14,7 +14,7 @@
         const fs = require("fs");
         const https = require("https");
 
-        const url = "https://raw.githubusercontent.com/YOUR_GITHUB_USERNAME/LavaScript/main/lavaScript.js";
+        const url = "https://raw.githubusercontent.com/Readyornot69/LavaScript/main/lavaScript.js";
         const file = fs.createWriteStream("lavaScript.js");
 
         https.get(url, (response) => {
