@@ -50,4 +50,14 @@ While still a relatively new language, LavaScript represents an exciting develop
 Disclaimer:
 
 This page about LavaScript is a hypothetical Wikipedia entry. The language and its features are conceptual and are part of a creative development project. The description above is meant for illustrative purposes and does not represent an official programming language currently recognized by any standards organizations.
+# LavaScript 🔥
 
+LavaScript is a fun, browser-based scripting language for 3D rendering, ethical hacking, and pranks!  
+
+## Features:
+- 🛠️ 3D Rendering (`3drender sphere color_blue;`)
+- 🎭 Trolling Commands (`screenShake 5s;`)
+- 🔥 Browser Hacks (`openTab https://example.com;`)
+
+## Installation:
+1. Clone this repo:
