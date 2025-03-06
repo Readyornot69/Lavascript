@@ -1,0 +1,36 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>LavaScript Interpreter</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+    }
+    #output {
+      background-color: #f4f4f4;
+      padding: 10px;
+      border-radius: 5px;
+      margin-top: 20px;
+      font-family: monospace;
+    }
+    #error {
+      color: red;
+    }
+  </style>
+</head>
+<body>
+  <h1>LavaScript Interpreter</h1>
+  <textarea id="input" placeholder="Write LavaScript code here..." rows="10" cols="50"></textarea><br>
+  <button onclick="runLavaScript()">Run LavaScript</button>
+
+  <div id="output"></div>
+  <div id="error"></div>
+
+  <!-- Include the JavaScript files -->
+  <script src="crashHandler.js"></script> <!-- Crash handler script -->
+  <script src="lavaScriptInterpreter.js"></script> <!-- Interpreter script -->
+</body>
+</html>
