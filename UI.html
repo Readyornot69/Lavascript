@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LavaScript 3D Playground</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="lavaScript.js"></script>
+    <style>
+        body { font-family: Arial, sans-serif; text-align: center; }
+        canvas { display: block; margin: 20px auto; border: 1px solid black; }
+    </style>
+</head>
+<body>
+    <h1>🔥 LavaScript 3D Playground 🔥</h1>
+    <textarea id="codeInput" rows="5" cols="50" placeholder="Write LavaScript here..."></textarea>
+    <br>
+    <button onclick="runLavaScript()">Run Code</button>
+    <pre id="output"></pre>
+    <canvas id="lavaCanvas"></canvas>
+
+    <script>
+        // Setup Three.js
+        let scene = new THREE.Scene();
+        let camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+        let renderer = new THREE.WebGLRenderer({ canvas: document.getElementById("lavaCanvas") });
+        renderer.setSize(400, 400);
+        document.body.appendChild(renderer.domElement);
+
+        // Lighting
+        let light = new THREE.AmbientLight(0xffffff);
+        scene.add(light);
+
+        // Function to interpret LavaScript commands
+        function interpretLavaScript(code) {
+            let lines = code.split("\n");
+            lines.forEach(line => {
+                if (line.startsWith("3drender")) {
+                    let parts = line.split(" ");
+                    let shape = parts[1];
+                    let color = parts[2].replace("color_", "");
+
+                    let geometry, material, mesh;
+
+                    if (shape === "sphere") geometry = new THREE.SphereGeometry(1, 32, 32);
+                    else if (shape === "cube") geometry = new THREE.BoxGeometry(1, 1, 1);
+                    else return "❌ Unknown shape: " + shape;
+
+                    material = new THREE.MeshBasicMaterial({ color: color });
+                    mesh = new THREE.Mesh(geometry, material);
+                    scene.add(mesh);
+                    mesh.position.set(0, 0, -5);
+                }
+            });
+
+            renderer.render(scene, camera);
+            return "✅ LavaScript executed!";
+        }
+
+        function runLavaScript() {
+            let code = document.getElementById("codeInput").value;
+            let outputElement = document.getElementById("output");
+
+            try {
+                let result = interpretLavaScript(code);
+                outputElement.innerText = result;
+            } catch (error) {
+                outputElement.innerText = "❌ Error: " + error.message;
+            }
+        }
+    </script>
+</body>
+</html>
