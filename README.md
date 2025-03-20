@@ -60,4 +60,4 @@ LavaScript is a fun, browser-based scripting language for 3D rendering, ethical 
 - 🔥 Browser Hacks (`openTab https://example.com;`)
 
 ## Installation:
-1. Clone this repo:
+go to the code and run the install lavascript file on a browser or Node.js
